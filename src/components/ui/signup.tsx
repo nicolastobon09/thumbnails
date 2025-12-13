@@ -16,7 +16,7 @@ import { useRouter } from "next/navigation";
 
 type FormValues = z.infer<typeof authSchema>;
 
-const SignIn = () => {
+const SignUp = () => {
 
     const router = useRouter();
 
@@ -47,9 +47,9 @@ const SignIn = () => {
                 </Link>
                 <Card className="w-full max-w-sm">
                     <CardHeader>
-                        <CardTitle className="text-2xl">Sign In</CardTitle>
+                        <CardTitle className="text-2xl">Sign Up</CardTitle>
                         <CardDescription>
-                            Enter your email and password to sign in to your account.
+                            Enter your email and password to sign up to your account.
                         </CardDescription>
                     </CardHeader>
                     <form onSubmit={handleSubmit(onSubmit)}>
@@ -66,11 +66,11 @@ const SignIn = () => {
                             </div>
                         </CardContent>
                         <CardFooter className="flex flex-col gap-2 mt-5">
-                            <Button type="submit" className="w-full">Sign In</Button>
+                            <Button type="submit" className="w-full">Sign Up</Button>
                             <p className="text-sm text-center text-muted-foreground">
-                                Don't have an account?{" "}
-                                <Link href="/signup" className="text-primary hover:underline">
-                                    Sign Up
+                                Already have an account?{" "}
+                                <Link href="/signin" className="text-primary hover:underline">
+                                    Sign In
                                 </Link>
                             </p>
                         </CardFooter>
@@ -81,4 +81,4 @@ const SignIn = () => {
     );
 };
 
-export default SignIn;
+export default SignUp;
