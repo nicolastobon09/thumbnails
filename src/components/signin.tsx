@@ -4,19 +4,19 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { IoArrowBack } from "react-icons/io5";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./card";
-import { Label } from "./label";
-import { Input } from "./input";
-import { Button } from "./button";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/card";
+import { Label } from "./ui/label";
+import { Input } from "./ui/input";
+import { Button } from "./ui/button";
 import { z } from "zod";
 import { authSchema } from "~/schemas/auth";
-import { login } from "~/server/auth/utils";
+import { login } from "~/app/actions/auth";
 import { toast } from "sonner"
 import { useRouter } from "next/navigation";
 
 type FormValues = z.infer<typeof authSchema>;
 
-const SignUp = () => {
+const SignIn = () => {
 
     const router = useRouter();
 
@@ -47,9 +47,9 @@ const SignUp = () => {
                 </Link>
                 <Card className="w-full max-w-sm">
                     <CardHeader>
-                        <CardTitle className="text-2xl">Sign Up</CardTitle>
+                        <CardTitle className="text-2xl">Sign In</CardTitle>
                         <CardDescription>
-                            Enter your email and password to sign up to your account.
+                            Enter your email and password to sign in to your account.
                         </CardDescription>
                     </CardHeader>
                     <form onSubmit={handleSubmit(onSubmit)}>
@@ -66,11 +66,11 @@ const SignUp = () => {
                             </div>
                         </CardContent>
                         <CardFooter className="flex flex-col gap-2 mt-5">
-                            <Button type="submit" className="w-full">Sign Up</Button>
+                            <Button type="submit" className="w-full">Sign In</Button>
                             <p className="text-sm text-center text-muted-foreground">
-                                Already have an account?{" "}
-                                <Link href="/signin" className="text-primary hover:underline">
-                                    Sign In
+                                Don't have an account?{" "}
+                                <Link href="/signup" className="text-primary hover:underline">
+                                    Sign Up
                                 </Link>
                             </p>
                         </CardFooter>
@@ -81,4 +81,4 @@ const SignUp = () => {
     );
 };
 
-export default SignUp;
+export default SignIn;

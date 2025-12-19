@@ -1,7 +1,7 @@
 "use server";
 
 import { redirect } from "next/navigation";
-import SignUp from "~/components/ui/signup";
+import SignUp from "~/components/signup";
 import { auth } from "~/server/auth";
 
 const Page = async () => {
